@@ -314,6 +314,84 @@
     }
 
     /* =========================================
+       HERO IMAGE (split layout)
+    ========================================= */
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    }
+
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      border: 2px solid rgba(154, 205, 107, 0.3);
+      border-radius: 24px;
+      z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-image-wrap { display: none; }
+    }
+
+    /* =========================================
+       PHOTO GALLERY SECTION
+    ========================================= */
+    .gallery-section {
+      background: #1d1d1f;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      height: 340px;
+    }
+
+    .gallery-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease, transform 0.4s ease;
+    }
+
+    .gallery-strip img:hover {
+      filter: brightness(1);
+      transform: scale(1.03);
+      z-index: 1;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-strip {
+        grid-template-columns: 1fr 1fr;
+        height: 400px;
+      }
+    }
+
+    /* =========================================
        SECTION 1: DAS PROBLEM
     ========================================= */
     .problem-section {
@@ -713,6 +791,22 @@
           Sieh wie es funktioniert ↓
         </a>
       </div>
+      <div class="hero-image-wrap">
+        <img
+          src="https://cdn.prod.website-files.com/693af86f93a1bf26803eecc3/6976136a17bf5bb2f27de13c_S-Fit-3.jpg"
+          alt="S-Fit Studio"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PHOTO GALLERY ===================== -->
+  <section class="gallery-section">
+    <div class="gallery-strip">
+      <img src="https://cdn.prod.website-files.com/693af86f93a1bf26803eecc3/69761c0aa6e4409d13fd3e23_Fitness2.png" alt="S-Fit Training" />
+      <img src="https://cdn.prod.website-files.com/693af86f93a1bf26803eecc3/69b5248b47cc714d7a9a5ce5_oraqle_3499.jpeg" alt="S-Fit Studio" />
+      <img src="https://cdn.prod.website-files.com/693af86f93a1bf26803eecc3/69b52832c32a42c14a40da34_oraqle_3501.jpeg" alt="S-Fit Equipment" />
+      <img src="https://cdn.prod.website-files.com/693af86f93a1bf26803eecc3/69b528b1a91da8f5603aaaa0_oraqle_3502.jpeg" alt="S-Fit Training Session" />
     </div>
   </section>
 
